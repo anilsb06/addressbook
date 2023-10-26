@@ -3,7 +3,7 @@ pipeline {
         docker { image 'maven' }
     }
     stages {
-        stage('compile') {
+        stage('dir_create') {
             steps {
                 sh "mkdir -p ~/.m2/repository"
             }
