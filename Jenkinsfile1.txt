@@ -3,19 +3,22 @@ pipeline {
         docker { image 'maven' }
     }
     stages {
-        stage('github') {
-          git 'https://github.com/anilsb06/addressbook.git'
-        }
         stage('compile') {
-            sh 'mvn compile'
+            steps {
+                sh 'mvn compile'
+            }
         }
         stage('test') {
-            sh 'mvn test'
-            testresults: '**TEST*.xml'
+            steps {
+                sh 'mvn test'
+                testresults: '**TEST*.xml'
+            }
         }
-        stage('package') {
-            sh 'mvn package'
-            warfile:  '**/target/addressbook.war'
+        stage('test') {
+            steps {
+                sh 'mvn package'
+                warfile:  '**/target/addressbook.war'
+            }
         }
     }
 }
