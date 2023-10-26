@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('compile') {
             steps {
-                mkdir -p ~/.m2/repository
+                sh "mkdir -p ~/.m2/repository"
             }
         }
         stage('compile') {
