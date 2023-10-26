@@ -1,6 +1,9 @@
 pipeline {
     agent {
-        docker { image 'maven' }
+        docker { 
+            image 'maven'
+            args '-u root'
+        }
     }
     stages {
         stage('dir_create') {
